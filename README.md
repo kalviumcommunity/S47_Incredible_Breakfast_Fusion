@@ -1,3 +1,3 @@
    **Incredible BreakFast Fusion**
 -
-The idea is to make a project in which the user can generate silly breakfast food items as per their preference. The user can login and input their unique breakfast preferance.
+The idea of this project is to make list of weird food items. Like Icecream with ketchup or Maggi with chocolate or various other food items.
