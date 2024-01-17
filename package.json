@@ -1,0 +1,12 @@
+{
+  "name": "s47_incredible_breakfast_fusion",
+  "version": "1.0.0",
+  "description": "**Incredible BreakFast Fusion**\r -\r The idea is to make a project in which the user can generate silly breakfast food items as per their preference. The user can login and input their unique breakfast preferance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
