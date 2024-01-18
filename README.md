@@ -1,1 +1,0 @@
-# S47_List_Of_Weird_Food_Item
