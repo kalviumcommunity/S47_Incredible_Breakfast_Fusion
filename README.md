@@ -1,3 +1,2 @@
-   **Incredible BreakFast Fusion**
--
-The idea of this project is to make list of weird food items. Like Icecream with ketchup or Maggi with chocolate or various other food items.
+ **List of weird food items**
+The idea is to make a project in which it will show a user a list of weird food combinations.
