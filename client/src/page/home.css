@@ -1,0 +1,47 @@
+body{
+    background-color: rgba(255, 228, 196, 0.365);
+    margin: 0;
+}
+.navbar{
+    border-bottom: 1px solid cadetblue;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(118, 186, 189);
+    padding: 10px;
+    font: 1em sans-serif;
+}
+.active{
+    cursor: pointer;
+}
+    
+.navbar_side{
+    gap: 30px;
+}
+.grid-cont{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+.box{
+    border: 1px solid cadetblue;
+    margin: 20px;
+    height: 370px;
+}
+.box1{
+    background-color: rgba(118, 185, 189, 0.242);
+    font: 1.5em sans-serif;
+}
+
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(103, 136, 137);
+    color:white;
+    margin: 20px;
+    height: 200px;
+}
