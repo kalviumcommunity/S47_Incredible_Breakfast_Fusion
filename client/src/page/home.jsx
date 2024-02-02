@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import "./home.css"
-import data from "../data.json"
+// import data from "../data.json"
+import axios from 'axios'
 
 const Home = () => {
+
+    const [data, setData] = React.useState([])
+
+    useEffect(() => {
+        axios
+          .get('http://localhost:3000')
+          .then((res) => setData(res.data))
+          .catch((err) => console.log(err))
+          console.log(data)
+    }, [])
+
   return (
     <div>
         <div className='flex navbar'>
@@ -13,8 +25,26 @@ const Home = () => {
             </div>
         </div>
         <div className="grid-cont">
-            
-                {data.map((data) => (
+            {
+                data.map((data) => {
+                    return (
+                        <>
+                        <div className='box box1'>
+                            <div>
+                                <p>{data["Weird Combos"]}</p>
+                                <div className='flex'>
+                                <p>{data["Food Item1"]}</p>
+                                <p>+</p>
+                                <p>{data["Food Item2"]}</p>
+                                </div>
+                                <p>{data.Description}</p>
+                            </div>
+                        </div>
+                        </>
+                    )
+                })
+            }
+                {/* {data.map((data) => (
                     <>
                     <div className='box box1'>
                     <div className='img'>
@@ -26,65 +56,7 @@ const Home = () => {
                     </div>
                     </div>
                     </>    
-                ))}
-                
-            
-            {/* <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-                <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div>
-            <div className='box box1'>
-                <div className='img'>
-                    <h2>Img</h2>
-                </div>
-                <h4>weird combo</h4>
-                <h5>Description</h5>
-            </div> */}
+                ))} */}
         </div>
     </div>
   )
