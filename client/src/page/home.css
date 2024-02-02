@@ -9,7 +9,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(118, 186, 189);
+    background-color: rgb(220, 212, 212);
     padding: 10px;
     font: 1em sans-serif;
 }
@@ -29,14 +29,17 @@ body{
 .box{
     border: 1px solid cadetblue;
     margin: 20px;
-    height: 370px;
-}
-.box1{
-    background-color: rgba(118, 185, 189, 0.242);
+    background-color: rgba(128, 183, 186, 0.242);
     font: 1.5em sans-serif;
 }
 
-.img{
+h4, h5{
+    margin-top: 10px;
+    /* margin-bottom: 7px; */
+
+}
+
+/* .img{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,4 +47,10 @@ body{
     color:white;
     margin: 20px;
     height: 200px;
+} */
+img{
+    height: 250px;
+    width: 370px;
+    margin: 3px;
+    border: 1px solid cadetblue;
 }
