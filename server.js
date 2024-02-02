@@ -1,22 +1,28 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
+const cors = require('cors')
 const app = express();
-const port =5000;
-const mongoose = require('mongoose');
+const port = 3000;
 
-const uri= 'mongodb+srv://anushka_poonia:anushkapoonia3777@cluster0.rniykvz.mongodb.net/?retryWrites=true&w=majority'
+app.use(cors())
 
-mongoose.connect(uri)
-.then(()=>{
-  app.get("/",(req,res)=>{
-    res.json({connection:"Connected"})
+const uri = 'mongodb+srv://anushka_poonia:anushkapoonia3777@cluster0.rniykvz.mongodb.net/?retryWrites=true&w=majority';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect()
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+    const database = client.db('Food_DataBase');
+    const collection = database.collection('List_Of_Food');
+
+    app.get('/', async (req,res)=>{
+    const result = await collection.find({}).toArray();
+      res.json(result);
+    })
   })
-})
+  .catch(err => {
+    console.error('Error connecting to MongoDB Atlas', err);
+});
 
-.catch(()=>{
-  app.get("/",(req,res)=>{
-    res.json({connection:"Not Connected"})
-  })
-})
-  app.listen(port, () => {
-    console.log(`🚀 server running on PORT: ${port}`);
-  });
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
