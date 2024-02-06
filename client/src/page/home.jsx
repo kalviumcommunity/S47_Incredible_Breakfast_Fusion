@@ -8,11 +8,16 @@ const Home = () => {
     const [data, setData] = React.useState([])
 
     useEffect(() => {
-        axios
-          .get('http://localhost:3000')
-          .then((res) => setData(res.data))
-          .catch((err) => console.log(err))
-          console.log(data)
+        async function getApi(){
+            try{
+                const res = await axios.get('http://localhost:3000/')
+                console.log(res.data)
+                setData(res.data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getApi()
     }, [])
 
   return (
@@ -31,11 +36,11 @@ const Home = () => {
                         <>
                         <div className='box box1'>
                             <div>
-                                <p>{data["Weird Combos"]}</p>
+                                <p>{data["WeirdCombos"]}</p>
                                 <div className='flex'>
-                                <p>{data["Food Item1"]}</p>
+                                <p>{data["FoodItem1"]}</p>
                                 <p>+</p>
-                                <p>{data["Food Item2"]}</p>
+                                <p>{data["FoodItem2"]}</p>
                                 </div>
                                 <p>{data.Description}</p>
                             </div>

@@ -1,22 +1,28 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 const cors = require('cors')
 const app = express();
+const FoodModel = require('./index')
 const port = 3000;
 
+require('dotenv').config()
 app.use(cors())
+app.use(express.json())
 
-const uri = 'mongodb+srv://anushka_poonia:anushkapoonia3777@cluster0.rniykvz.mongodb.net/?retryWrites=true&w=majority';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect()
+const uri = process.env.MONGODB_URI
+console.log(uri);
+mongoose.connect(uri)
   .then(() => {
     console.log('Connected to MongoDB Atlas');
-    const database = client.db('Food_DataBase');
-    const collection = database.collection('List_Of_Food');
-
-    app.get('/', async (req,res)=>{
-    const result = await collection.find({}).toArray();
-      res.json(result);
+    app.get('/',(req,res)=>{
+      FoodModel.find({})
+      .then(combos => res.json(combos))
+    })
+    app.post('/Weird_combos', (req,res)=>{
+      let{FoodItem1,FoodItem2,WeirdCombos,Description} = req.body
+      FoodModel.create({FoodItem1,FoodItem2,WeirdCombos,Description})
+      .then(food => res.json(food))
+      .catch(err => console.log(err))
     })
   })
   .catch(err => {
