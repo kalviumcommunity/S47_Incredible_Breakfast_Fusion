@@ -20,7 +20,7 @@ const Forms = () => {
             <h2>Add Your Weird Combos</h2>
             <div>
                 <label>Enter Food Item 1</label>
-                <input type="text" placeholder="Enter your food item" onChange={(e)=>setFoodItem1(e.target.value)}/>
+                <input type="text" placeholder="Enter your food item" onChange={(e)=>setFoodItem1(e.target.value)} required/>
             </div>
             <div>
                 <label>Enter Food Item 2</label>

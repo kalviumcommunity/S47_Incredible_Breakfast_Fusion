@@ -2,10 +2,12 @@ import React, { useEffect} from 'react'
 import "./home.css"
 // import data from "../data.json"
 import axios from 'axios'
+import {Link,useNavigate} from 'react-router-dom'
 
 const Home = () => {
 
     const [data, setData] = React.useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function getApi(){
@@ -20,13 +22,23 @@ const Home = () => {
         getApi()
     }, [])
 
+    const handleDelete = (id) =>{
+        axios.delete('http://localhost:3000/deleteUser/'+id)
+        .then(res=>{
+            console.log(res)
+            window.location.reload()
+        })
+        .catch(err => console.log(err))
+    }
+
   return (
     <div>
         <div className='flex navbar'>
             <h1>Incredible Breakfast Fusion</h1>
             <div className='flex navbar_side'>
-                <h3 className='active'>Home</h3>
-                <h3 className='active'>About</h3>
+                <Link to='/weird'><button className='active'>Add +</button></Link>
+                <button className='active'>Home</button>
+                <button className='active'>About</button>
             </div>
         </div>
         <div className="grid-cont">
@@ -43,6 +55,9 @@ const Home = () => {
                                 <p>{data["FoodItem2"]}</p>
                                 </div>
                                 <p>{data.Description}</p>
+                                <br/>
+                                <button onClick={() => navigate (`/update/${data._id}`,{state:{data}})}>Edit</button>
+                                <button onClick={(e)=>handleDelete(data._id)}>Delete</button>
                             </div>
                         </div>
                         </>
