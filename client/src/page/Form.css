@@ -1,0 +1,52 @@
+body{
+    margin-top:0;
+}
+h2.WEIRD{
+    margin-top: 0%;
+}
+.WEIRD{
+    background-color: rgba(42, 179, 42, 0.573);
+    text-align: center;
+    font-size: 50px;
+    padding: 8px;
+    color:rgb(5, 59, 77);
+}
+.App2{
+    background-color: palegreen;
+    height: 100vh;
+}
+.forms{
+    margin-left: 26%;
+    width: 500px;
+    height: 500px;
+    border: #0e351ab8 solid 1px;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-right:5%;
+}
+.forms label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+.forms input {
+    width: 95%;
+    padding: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+.forms button{
+    width: 85%;
+    padding: 10px;
+    margin-top: 4%;
+    background-color: rgba(19, 156, 19, 0.788);
+    border: none;
+    color: #fff;
+    margin-left: 7%;
+    font-size: 20PX;
+    cursor: pointer;
+}
+.forms button:hover {
+    background-color: rgba(42, 179, 42, 0.573);
+}

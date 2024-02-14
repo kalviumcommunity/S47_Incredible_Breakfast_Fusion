@@ -1,0 +1,51 @@
+body{
+    margin-top:0;
+}
+h2.Updatesss{
+    margin-top: 0%;
+}
+.Updatesss{
+    background-color: palevioletred;
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 8px;
+}
+.App3{
+    background-color: pink;
+    height: 100vh;
+}
+.updates{
+    margin-left: 26%;
+    width: 500px;
+    height: 500px;
+    border: #0e351ab8 solid 1px;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-right:5%;
+}
+.updates label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+.updates input {
+    width: 95%;
+    padding: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+.updates button{
+    width: 85%;
+    padding: 10px;
+    margin-top: 4%;
+    background-color: rgba(224, 115, 151, 0.817);
+    border: none;
+    color: #fff;
+    margin-left: 7%;
+    font-size: 20PX;
+    cursor: pointer;
+}
+.updates button:hover {
+    background-color: palevioletred;
+}
