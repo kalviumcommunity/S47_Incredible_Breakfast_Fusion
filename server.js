@@ -16,7 +16,8 @@ const updateSchema=joi.object({
   FoodItem1:joi.string().required(),
   FoodItem2:joi.string().required(),
   WeirdCombos:joi.string().required(),
-  Description:joi.string().required()
+  Description:joi.string().required(),
+  name:joi.string().required()
 })
 
 
@@ -42,8 +43,8 @@ app.post('/Weird_combos', (req,res)=>{
     console.log(error.details);
     return res.status(400).json({ error: error.details[0].message }); 
   } else {
-    let { FoodItem1, FoodItem2, WeirdCombos, Description } = req.body;
-    FoodModel.create({ FoodItem1, FoodItem2, WeirdCombos, Description })
+    let { FoodItem1, FoodItem2, WeirdCombos, Description,name } = req.body;
+    FoodModel.create({ FoodItem1, FoodItem2, WeirdCombos, Description,name })
     .then(food => res.json(food))
     .catch(err => console.log(err));
   }
@@ -59,12 +60,18 @@ app.post('/Weird_combos', (req,res)=>{
 
     app.put('/UpdateFood/:id', (req,res)=>{
       let id = req.params.id
-      let { FoodItem1, FoodItem2, WeirdCombos, Description } = req.body
+      let { FoodItem1, FoodItem2, WeirdCombos, Description,name } = req.body
     
-      FoodModel.findByIdAndUpdate({ _id: id }, { FoodItem1, FoodItem2, WeirdCombos, Description }, { new: true })
+      FoodModel.findByIdAndUpdate({ _id: id }, { FoodItem1, FoodItem2, WeirdCombos, Description,name }, { new: true })
       .then(food => res.json(food))
-      .catch(err => console.log(err))
-    })  
+      .catch(err => console.log(err)) 
+    }) 
+    
+    app.get('/users',(req,res)=>{
+      FoodModel.find({})
+      .then(user=>res.json(user))
+      .catch(err=>console.log(err))
+    })
     
     app.post('/login', (req, res) => {
       const { email, username } = req.body;

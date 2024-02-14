@@ -12,6 +12,9 @@ const CombosSchema = new mongoose.Schema({
     },
     Description: {
       type: String
+    },
+    name: {
+      type: String
     }
   });
   

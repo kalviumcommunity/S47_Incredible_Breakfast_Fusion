@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
+import "./UpdateFood.css"
 
 const UpdateFood= () => {
 
@@ -10,6 +11,8 @@ const UpdateFood= () => {
     const[FoodItem2, setFoodItem2] = useState("");
     const[WeirdCombos, setWeirdCombo] = useState("");
     const[Description, setDescription] = useState("");
+    const [name, setName] = useState("")
+
     const navigate = useNavigate()
 
 
@@ -21,13 +24,14 @@ const UpdateFood= () => {
             setFoodItem2(result.data.FoodItem2)
             setWeirdCombo(result.data.WeirdCombos)
             setDescription(result.data.Description)
+            setName(result.data.name)
         })
         .catch(err => console.log(err))
     },[])
 
     const Update = (e) =>{
         e.preventDefault()
-        axios.put('http://localhost:3000/UpdateFood/'+id,{FoodItem1,FoodItem2,WeirdCombos,Description})
+        axios.put('http://localhost:3000/UpdateFood/'+id,{FoodItem1,FoodItem2,WeirdCombos,Description,name})
         .then(result=> {console.log(result)
             navigate('/')
         })
@@ -36,10 +40,9 @@ const UpdateFood= () => {
 
 
   return (
-    <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
-    <div className='w-50 bg-white rounded p-3'>
-        <form onSubmit={Update}>
-            <h2>Update User</h2>
+    <div className="App3">
+        <h2 className='Updatesss'>Update User</h2>
+        <form  className="updates" onSubmit={Update}>
             <div>
                 <label>Enter Food Item 1</label>
                 <input type="text" value={FoodItem1} placeholder="Enter your food item" onChange={(e)=>setFoodItem1(e.target.value)} required/>
@@ -56,11 +59,13 @@ const UpdateFood= () => {
                 <label>Enter Description</label>
                 <input type="text" value={Description} placeholder="Enter your description" onChange={(e)=>setDescription(e.target.value)}/>
             </div>
+            <div>
+                <label>Enter Name</label>
+                <input type="text" placeholder="Enter your name" onChange={(e)=>setName(e.target.value)}/>
+            </div>
             <button type="submit">Update</button>
         </form>
     </div>
-
-</div>
   )
 }
 
